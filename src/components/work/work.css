@@ -31,11 +31,15 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 1.25rem;
     border-radius: 1rem;
+    max-width: 337px;
 }
 
 .work__img {
     width: 295px;
     border-radius: 1rem;
+}
+.work__img-div {
+    height: 198px;
     margin-bottom: var(--mb-1);
 }
 
@@ -44,13 +48,34 @@
     font-weight: var(--font-medium);
     margin-bottom: var(--mb-0-5);
 }
+.work__links {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+    justify-content: flex-end;
+}
+.work__tech {
+    font-weight: 500;
+    font-style: normal;
+}
+.tech__section {
+    font-size: 12px;
+    font-style: italic;
+}
 
 .work__button {
-    color: var(--text-color);
+    color: white;
+    background-color: var(--text-color) ;
     font-size: var(--small-font-size);
+    border-radius: 2px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     column-gap: 0.25rem;
+    transition: ease-in-out 0.3s;
+}
+.work__button:hover {
+    background-color: black;
 }
 
 .work__button-icon {
