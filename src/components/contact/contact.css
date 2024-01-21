@@ -49,6 +49,10 @@
     width: 360px;
 }
 
+.contact_btn_Text {
+    padding-left: 10px;
+}
+
 .contact__form-div {
     position: relative;
     margin-bottom: var(--mb-2);
