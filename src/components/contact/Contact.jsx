@@ -1,20 +1,33 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import './contact.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './contact.css';
 
 const Contact = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
+    emailjs
+      .sendForm('service_0opvkvl', 'template_ue45sh2', form.current, 'PnYTnrvTtZ3p_4-Kf')
+      .then(
+        (result) => {
+          e.target.reset();
+          notifySuccess('Email sent successfully!');
+        },
+        (error) => {
+          notifyError('Error sending email. Please try again.');
+        }
+      );
+  };
 
-    emailjs.sendForm('service_0opvkvl', 'template_ue45sh2', form.current, 'PnYTnrvTtZ3p_4-Kf')
-      .then((result) => {
-        e.target.reset();
-        window.alert('success');
-      }, (error) => {
-          window.alert('error');
-      });
+  const notifySuccess = (message) => {
+    toast.success(message, { position: 'bottom-center' });
+  };
+
+  const notifyError = (message) => {
+    toast.error(message, { position: 'bottom-center' });
   };
 
   return (
@@ -86,8 +99,9 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
